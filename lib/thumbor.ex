@@ -106,7 +106,7 @@ defmodule Thumbor do
       def security_code, do: @security_code
       def http_adapter, do: @http_adapter
       def storage_adapter, do: @storage_adapter
-      def bucket, @bucket
+      def bucket, do: @bucket
 
       def build_url(image_url, params) do
         Thumbor.build_url(image_url, params)
