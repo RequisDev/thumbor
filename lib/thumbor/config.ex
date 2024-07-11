@@ -13,6 +13,10 @@ defmodule Thumbor.Config do
     Application.get_env(@app, :storage_adapter)
   end
 
+  def bucket do
+    Application.get_env(@app, :bucket)
+  end
+
   def security_code do
     Application.get_env(@app, :security_code)
   end

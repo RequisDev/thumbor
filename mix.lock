@@ -1,0 +1,3 @@
+%{
+  "sandbox_registry": {:hex, :sandbox_registry, "0.1.1", "db6a116bf8e9553111820274701e48d1971185e89b53044f47c2a8f8e74956d7", [:mix], [], "hexpm", "88e12dc6be1bb98a05439e2b1de87db4bc0c043222b4fe4b46b5da7a0cc44948"},
+}
