@@ -30,7 +30,7 @@ defmodule Thumbor do
   def request(http_adapter, host, security_code, uri, options \\ []) do
     uri = build_request(host, security_code, uri)
 
-    HTTP.get(http_adapter, uri, options)
+    HTTP.get(http_adapter, uri, [], options)
   end
 
   def find_result(storage_adapter, image_uri, params \\ %{}, options \\ []) do
@@ -52,7 +52,7 @@ defmodule Thumbor do
 
     with {:ok, data} <- request(http_adapter, host, security_code, uri, options),
         {:ok, presigned_upload} <- Storage.presigned_upload(storage_adapter, uri, options),
-        {:ok, metadata} <- HTTP.put(http_adapter, presigned_upload.url, data, options) do
+        {:ok, metadata} <- HTTP.put(http_adapter, presigned_upload.url, [], data, options) do
       {:ok, %{
         destination_object: uri,
         presigned_upload: presigned_upload,
@@ -75,7 +75,7 @@ defmodule Thumbor do
 
     with {:ok, data} <- request(http_adapter, host, security_code, uri, options),
         {:ok, presigned_upload} <- Storage.presigned_upload(storage_adapter, dest_object, options) do
-      HTTP.put(http_adapter, presigned_upload.url, data, options)
+      HTTP.put(http_adapter, presigned_upload.url, [], data, options)
     end
   end
 

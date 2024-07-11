@@ -1,9 +1,9 @@
 defmodule Thumbor.HTTP do
-  def get(adapter, uri, options \\ []) do
-    adapter.get(uri, options)
+  def get(adapter, uri, headers, options \\ []) do
+    adapter.get(uri, headers, options)
   end
 
-  def put(adapter, url, body, options) do
-    adapter.put(url, body, options)
+  def put(adapter, url, headers, body, options) do
+    adapter.put(url, headers, body, options)
   end
 end
