@@ -4,7 +4,7 @@ defmodule Thumbor.CommonParams do
   """
 
   @ordered_query_params [
-    :metadata,
+    :meta,
     :trim,
     :fit_in,
     :size,
@@ -20,7 +20,7 @@ defmodule Thumbor.CommonParams do
   ### Examples
 
       Thumbor.CommonParams.convert_params_to_filter("example.jpg", %{
-        metadata: true,
+        meta: true,
         smart: true,
         trim: %{left: 1, top: 2, right: 3, bottom: 4},
         fit_in: :full,
@@ -32,7 +32,7 @@ defmodule Thumbor.CommonParams do
           contrast: %{amount: 10}
         ]
       })
-      "metadata/trim/1x2:3x4/full-fit-in/300x300/10/10/smart/filters:brightness(10):contrast(10)/example.jpg"
+      "meta/trim/1x2:3x4/full-fit-in/300x300/10/10/smart/filters:brightness(10):contrast(10)/example.jpg"
   """
   @spec convert_params_to_filter(String.t(), map()) :: String.t()
   def convert_params_to_filter(image_url, params \\ %{}) do
@@ -68,8 +68,8 @@ defmodule Thumbor.CommonParams do
     "#{value}"
   end
 
-  defp convert_to_image_url({:metadata, true}) do
-    "metadata"
+  defp convert_to_image_url({:meta, true}) do
+    "meta"
   end
 
   defp convert_to_image_url({:size, attrs}) do
